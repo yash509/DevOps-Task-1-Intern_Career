@@ -10,16 +10,12 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 sh 'jenkins --version'
-                sh 'aws --version'
-                sh 'kubectl version --client'
-                sh 'terraform --version'
-                sh 'trivy --version'
                 sh 'docker --version'
             }
         }
         stage('Checkout from Git') {                        
             steps {                                       
-                git branch: 'main', url: ''
+                git branch: 'main', url: 'https://github.com/yash509/DevOps-Task-1-Intern_Career.git'
             }
         }
         stage("Docker Image Building"){
